@@ -292,5 +292,22 @@ class Learning {
         return toSet.size
     }
 
+    @Test
+    fun removeElement() {
+        val nums = intArrayOf(3, 2, 2, 3)
+        val output = removeElement(nums, 3)
+        assertEquals(2, output)
+        assertEquals(intArrayOf(2, 2, 2, 3), nums)
+    }
+
+    fun removeElement(nums: IntArray, `val`: Int): Int {
+        return nums.fold(0) { acc: Int, i: Int ->
+            if (i != `val`) {
+                nums[acc] = i
+                acc + 1
+            } else acc
+        }
+    }
+
 }
 
